@@ -31,6 +31,12 @@ if(isset($_POST['submit'])){
         }
     }
 
+    if(array_filter($errors)){
+        
+    } else {
+        header('Location: index.php');
+    }
+
 }
 
 ?>
