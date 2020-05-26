@@ -1,5 +1,7 @@
 <?php
 
+include('config/db_connect.php');
+
 $nickname = $email = $songs = '';
 $errors = ['email'=>'', 'nickname'=>'', 'songs'=>''];
 
@@ -34,7 +36,23 @@ if(isset($_POST['submit'])){
     if(array_filter($errors)){
         
     } else {
-        header('Location: index.php');
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $nickname = mysqli_real_escape_string($conn, $_POST['nickname']);
+        $songs = mysqli_real_escape_string($conn, $_POST['songs']);
+
+        //create sql
+        $sql = "INSERT INTO songs(nickname, email, songs) VALUES('$nickname', '$email', '$songs')";
+
+        //save to db and check
+
+        if(mysqli_query($conn, $sql)){
+            //success
+            header('Location: index.php');
+        } else {
+            //error
+            echo 'query error: ' . mysqli_error($conn);
+        }
+
     }
 
 }

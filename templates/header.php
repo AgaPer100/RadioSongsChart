@@ -21,9 +21,9 @@
 <body class="grey lighten-4">
     <nav class="white">
         <div class="container">
-            <a href="#" class="brand-logo left brand-text">Radio Songs Chart</a>
+            <a href="index.php" class="brand-logo left brand-text">Radio Songs Chart</a>
             <ul id="nav-mobile" class="right hide-on-small-and-down">
-                <li><a href="#" class="btn brand">Add your favorite songs</a></li>
+                <li><a href="add.php" class="btn brand">Add your favorite songs</a></li>
             </ul>
         </div>
     </nav>

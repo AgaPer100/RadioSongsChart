@@ -1,12 +1,6 @@
 <?php
 
-//connect to database
-$conn = mysqli_connect('localhost', 'Maria', 'test1234', 'songs_chart');
-
-//check connection
-if(!$conn){
-    echo 'Connection error: ' . mysqli_connect_error();
-}
+include('config/db_connect.php');
 
 //write query for all songs
 $sql = 'SELECT nickname, songs, id FROM songs ORDER BY created_at';
@@ -37,16 +31,16 @@ mysqli_close($conn);
 
 <div class="container">
     <div class="row">
-        <?php foreach($charts as $chart){ ?>
+        <?php foreach($charts as $chart): ?>
 
             <div class="col s6 md3">
                 <div class="card">
                     <div class="card-content center">
                         <h6><?php echo htmlspecialchars($chart['nickname']); ?></h6>
                         <ul>
-                            <?php foreach(explode(',', $chart['songs']) as $sng){ ?>
+                            <?php foreach(explode(',', $chart['songs']) as $sng): ?>
                                 <li><?php echo htmlspecialchars($sng); ?></li>
-                            <?php } ?>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                     <div class="card-action right-align">
@@ -55,7 +49,7 @@ mysqli_close($conn);
                 </div>
             </div>
 
-        <?php } ?>
+        <?php endforeach; ?>
     </div>
 </div>
 
