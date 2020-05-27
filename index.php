@@ -35,6 +35,7 @@ mysqli_close($conn);
 
             <div class="col s6 md3">
                 <div class="card">
+                    <img src="img/radio.png" alt="radio" class="song">
                     <div class="card-content center">
                         <h6><?php echo htmlspecialchars($chart['nickname']); ?></h6>
                         <ul>

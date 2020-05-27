@@ -44,7 +44,7 @@ if(isset($_GET['id'])){
 
     <?php include('templates/header.php') ?>
 
-    <div class="container center">
+    <div class="container center grey-text">
         <?php if($song): ?>
 
             <h4><?php echo htmlspecialchars($song['nickname']); ?></h4>
